@@ -248,6 +248,32 @@ namespace XIVSlothCombo.Combos.PvE
                     if (OriginalHook(Ninjutsu) is Rabbit)
                         return OriginalHook(Ninjutsu);
 
+                    if (IsEnabled(CustomComboPreset.NIN_TenChiJin))
+                    {
+                        if (HasEffect(Buffs.TenChiJin) && IsEnabled(CustomComboPreset.NIN_TenChiJin))
+                        {
+                            var tcjTimer = FindEffectAny(Buffs.TenChiJin).RemainingTime;
+
+                            if (tcjTimer > 5)
+                                return OriginalHook(Ten);
+
+                            if (tcjTimer > 4)
+                                return OriginalHook(Chi);
+
+                            if (tcjTimer > 3)
+                                return OriginalHook(Jin);
+                        }
+                        if (!GetCooldown(TenChiJin).IsCooldown && gauge.HutonTimer >= 15 && WasLastAction(HyoshoRanryu) && !IsMoving && !HasEffect(Buffs.Mudra))
+                        {
+                            return TenChiJin;
+                        }
+                        if (HasEffect(Buffs.Suiton) && GetCooldownRemainingTime(TrickAttack) >= 20 && gauge.Ninki <= 50)
+                        {
+                            return Meisui;
+                        }
+
+                    }
+
                     if (HasEffect(Buffs.RaijuReady) && !HasEffect(Buffs.Mudra))
                         return FleetingRaiju;
 
@@ -376,29 +402,7 @@ namespace XIVSlothCombo.Combos.PvE
                         if (lastComboMove == GustSlash && level >= Levels.AeolianEdge)
                             return AeolianEdge;
                     }
-                    if (IsEnabled(CustomComboPreset.NIN_TenChiJin))
-                    {
-                        if (!GetCooldown(TenChiJin).IsCooldown && !IsMoving && !HasEffect(Buffs.Mudra))
-                        {
-                            if (HasEffect(Buffs.Suiton))
-                                return Meisui;
 
-                            if (HasEffect(Buffs.TenChiJin) && IsEnabled(CustomComboPreset.NIN_TCJ))
-                            {
-                                var tcjTimer = FindEffectAny(Buffs.TenChiJin).RemainingTime;
-
-                                if (tcjTimer > 5)
-                                    return OriginalHook(Ten);
-
-                                if (tcjTimer > 4)
-                                    return OriginalHook(Chi);
-
-                                if (tcjTimer > 3)
-                                    return OriginalHook(Jin);
-                            }
-
-                        }
-                    }
                 }
                 return actionID;
             }
