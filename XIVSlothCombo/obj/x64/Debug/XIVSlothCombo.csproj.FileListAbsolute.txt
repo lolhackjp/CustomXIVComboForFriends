@@ -1,0 +1,13 @@
+C:\Users\Aki\AppData\Roaming\XIVLauncher\devPlugins\XIVSlothCombo\images\akified.png
+C:\Users\Aki\AppData\Roaming\XIVLauncher\devPlugins\XIVSlothCombo\XIVSlothCombo.deps.json
+C:\Users\Aki\AppData\Roaming\XIVLauncher\devPlugins\XIVSlothCombo\XIVSlothCombo.dll
+C:\Users\Aki\AppData\Roaming\XIVLauncher\devPlugins\XIVSlothCombo\XIVSlothCombo.pdb
+C:\Users\Aki\AppData\Roaming\XIVLauncher\devPlugins\XIVSlothCombo\XIVSlothCombo.xml
+C:\Users\Aki\Source\Repos\XIVSlothCombo\XIVSlothCombo\obj\x64\Debug\XIVSlothCombo.csproj.AssemblyReference.cache
+C:\Users\Aki\Source\Repos\XIVSlothCombo\XIVSlothCombo\obj\x64\Debug\XIVSlothCombo.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Aki\Source\Repos\XIVSlothCombo\XIVSlothCombo\obj\x64\Debug\XIVSlothCombo.AssemblyInfoInputs.cache
+C:\Users\Aki\Source\Repos\XIVSlothCombo\XIVSlothCombo\obj\x64\Debug\XIVSlothCombo.AssemblyInfo.cs
+C:\Users\Aki\Source\Repos\XIVSlothCombo\XIVSlothCombo\obj\x64\Debug\XIVSlothCombo.csproj.CoreCompileInputs.cache
+C:\Users\Aki\Source\Repos\XIVSlothCombo\XIVSlothCombo\obj\x64\Debug\XIVSlothCombo.dll
+C:\Users\Aki\Source\Repos\XIVSlothCombo\XIVSlothCombo\obj\x64\Debug\XIVSlothCombo.xml
+C:\Users\Aki\Source\Repos\XIVSlothCombo\XIVSlothCombo\obj\x64\Debug\XIVSlothCombo.pdb

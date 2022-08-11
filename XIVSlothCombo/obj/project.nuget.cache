@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "fH6yl/NoRTbON57/m9WtTsD9s2O8UtkzZgbccqk18gQKeNQoo48zIgN6TNxlMTie5JrYDx3rZ7deIL7OS8jBoA==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Aki\\source\\repos\\XIVSlothCombo\\XIVSlothCombo\\XIVSlothCombo.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Aki\\.nuget\\packages\\dalamudpackager\\2.1.6\\dalamudpackager.2.1.6.nupkg.sha512",
+    "C:\\Users\\Aki\\.nuget\\packages\\ilrepack\\2.0.18\\ilrepack.2.0.18.nupkg.sha512"
+  ],
+  "logs": []
+}
