@@ -376,7 +376,29 @@ namespace XIVSlothCombo.Combos.PvE
                         if (lastComboMove == GustSlash && level >= Levels.AeolianEdge)
                             return AeolianEdge;
                     }
-                    return SpinningEdge;
+                    if (IsEnabled(CustomComboPreset.NIN_TenChiJin))
+                    {
+                        if (!GetCooldown(TenChiJin).IsCooldown && !IsMoving && !HasEffect(Buffs.Mudra))
+                        {
+                            if (HasEffect(Buffs.Suiton))
+                                return Meisui;
+
+                            if (HasEffect(Buffs.TenChiJin) && IsEnabled(CustomComboPreset.NIN_TCJ))
+                            {
+                                var tcjTimer = FindEffectAny(Buffs.TenChiJin).RemainingTime;
+
+                                if (tcjTimer > 5)
+                                    return OriginalHook(Ten);
+
+                                if (tcjTimer > 4)
+                                    return OriginalHook(Chi);
+
+                                if (tcjTimer > 3)
+                                    return OriginalHook(Jin);
+                            }
+
+                        }
+                    }
                 }
                 return actionID;
             }

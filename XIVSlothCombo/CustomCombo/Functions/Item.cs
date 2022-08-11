@@ -11,7 +11,7 @@ namespace XIVSlothCombo.CustomComboNS.Functions
         }
         public unsafe void UseActionId(uint actionId)
         {
-            FFXIVClientStructs.FFXIV.Client.Game.ActionManager.Instance()->UseAction(FFXIVClientStructs.FFXIV.Client.Game.ActionType.Spell, actionId, 0xE0000000, 65535, 0, 0, null);
+            FFXIVClientStructs.FFXIV.Client.Game.ActionManager.Instance()->UseAction(FFXIVClientStructs.FFXIV.Client.Game.ActionType.Ability, actionId, 0xE0000000, 65535, 0, 0, null);
         }
     }
     

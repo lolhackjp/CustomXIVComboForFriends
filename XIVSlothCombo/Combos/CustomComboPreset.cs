@@ -1734,6 +1734,10 @@ namespace XIVSlothCombo.Combos
         [CustomComboInfo("Ninki Pooling Feature - Bhavacakra", "Allows you to have a minimum amount of Ninki saved before spending on Bhavacakra.", NIN.JobID, 0, "", "")]
         NIN_NinkiPooling_Bhavacakra = 10034,
 
+        [ParentCombo(NIN_ST_SimpleMode)]
+        [CustomComboInfo("Add TenChiJin", "Adds TenChiJin to this Simple Feature.", NIN.JobID, 0, "", "")]
+        NIN_TenChiJin = 10035,
+
         #endregion
 
         #region PALADIN
