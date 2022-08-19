@@ -3278,6 +3278,9 @@ namespace XIVSlothCombo.Combos
         #endregion
 
         #region DRAGOON
+        [SecretCustomCombo]
+        [CustomComboInfo("Burst Mode", ".", DRG.JobID)]
+            DRGPvP_BurstMode = 811000001,
 
         #endregion
 

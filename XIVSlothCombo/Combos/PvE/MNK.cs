@@ -33,10 +33,12 @@ namespace XIVSlothCombo.Combos.PvE
             ShadowOfTheDestroyer = 25767,
             RiddleOfFire = 7395,
             RiddleOfWind = 25766,
+            RiddleOfEarth = 7394,
             Brotherhood = 7396,
             ForbiddenChakra = 3546,
             FormShift = 4262,
-            Thunderclap = 25762;
+            Thunderclap = 25762,
+            TrueNorth = 7546;
 
         public static class Buffs
         {
@@ -47,10 +49,12 @@ namespace XIVSlothCombo.Combos.PvE
                 CoerlForm = 109,
                 PerfectBalance = 110,
                 RiddleOfFire = 1181,
+                RiddleOfEarth = 1179,
                 LeadenFist = 1861,
                 FormlessFist = 2513,
                 DisciplinedFist = 3001,
-                Brotherhood = 1185;
+                Brotherhood = 1185,
+                TrueNorth = 1250;
         }
 
         public static class Debuffs
@@ -72,9 +76,11 @@ namespace XIVSlothCombo.Combos.PvE
                 FourPointFury = 45,
                 HowlingFist = 40,
                 DragonKick = 50,
+                TrueNorth = 50,
                 PerfectBalance = 50,
                 FormShift = 52,
                 MasterfulBlitz = 60,
+                RiddleOfEarth = 64,
                 RiddleOfFire = 68,
                 Enlightenment = 70,
                 Brotherhood = 70,
@@ -410,6 +416,14 @@ namespace XIVSlothCombo.Combos.PvE
                                         {
                                             return OriginalHook(Meditation);
                                         }
+                                        if (HasEffect(Buffs.DisciplinedFist) && HasEffect(Buffs.CoerlForm) && !HasEffect(Buffs.TrueNorth) && !HasEffect(Buffs.RiddleOfEarth) && level >= Levels.RiddleOfEarth && HasCharges(RiddleOfEarth) && GetRemainingCharges(RiddleOfEarth) >= GetRemainingCharges(TrueNorth))
+                                        {
+                                            return RiddleOfEarth;
+                                        }
+                                        if (HasEffect(Buffs.DisciplinedFist) && HasEffect(Buffs.CoerlForm) && !HasEffect(Buffs.TrueNorth) && !HasEffect(Buffs.RiddleOfEarth) && level >= Levels.TrueNorth && HasCharges(TrueNorth) && GetRemainingCharges(TrueNorth) >= GetRemainingCharges(RiddleOfEarth))
+                                        {
+                                            return TrueNorth;
+                                        }
                                     }
                                 }
                             }
@@ -439,6 +453,18 @@ namespace XIVSlothCombo.Combos.PvE
                         if (IsEnabled(CustomComboPreset.MNK_ST_Simple_Thunderclap) && !InMeleeRange() && gauge.Chakra == 5 && (!LevelChecked(FormShift) || HasEffect(Buffs.FormlessFist)))
                         {
                             return Thunderclap;
+                        }
+                    }
+
+                    if(canWeave)
+                    {
+                        if (HasEffect(Buffs.DisciplinedFist) && HasEffect(Buffs.CoerlForm) && !HasEffect(Buffs.TrueNorth) && !HasEffect(Buffs.RiddleOfEarth) && level >= Levels.RiddleOfEarth && HasCharges(RiddleOfEarth) && GetRemainingCharges(RiddleOfEarth) >= GetRemainingCharges(TrueNorth))
+                        {
+                            return RiddleOfEarth;
+                        }
+                        if (HasEffect(Buffs.DisciplinedFist) && HasEffect(Buffs.CoerlForm) && !HasEffect(Buffs.TrueNorth) && !HasEffect(Buffs.RiddleOfEarth) && level >= Levels.TrueNorth && HasCharges(TrueNorth) && GetRemainingCharges(TrueNorth) >= GetRemainingCharges(RiddleOfEarth))
+                        {
+                            return TrueNorth;
                         }
                     }
 
@@ -666,5 +692,6 @@ namespace XIVSlothCombo.Combos.PvE
                 return actionID;
             }
         }
+
     }
 }

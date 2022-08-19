@@ -248,35 +248,6 @@ namespace XIVSlothCombo.Combos.PvE
                     if (OriginalHook(Ninjutsu) is Rabbit)
                         return OriginalHook(Ninjutsu);
 
-                    if (IsEnabled(CustomComboPreset.NIN_TenChiJin))
-                    {
-                        if (HasEffect(Buffs.TenChiJin) && IsEnabled(CustomComboPreset.NIN_TenChiJin))
-                        {
-                            var tcjTimer = FindEffectAny(Buffs.TenChiJin).RemainingTime;
-
-                            if (tcjTimer > 5)
-                                return OriginalHook(Ten);
-
-                            if (tcjTimer > 4)
-                                return OriginalHook(Chi);
-
-                            if (tcjTimer > 3)
-                                return OriginalHook(Jin);
-                        }
-                        if (!GetCooldown(TenChiJin).IsCooldown && gauge.HutonTimer >= 15 && WasLastAction(HyoshoRanryu) && !IsMoving && !HasEffect(Buffs.Mudra))
-                        {
-                            return TenChiJin;
-                        }
-                        if (HasEffect(Buffs.Suiton) && GetCooldownRemainingTime(TrickAttack) >= 20 && gauge.Ninki <= 50)
-                        {
-                            return Meisui;
-                        }
-
-                    }
-
-                    if (HasEffect(Buffs.RaijuReady) && !HasEffect(Buffs.Mudra))
-                        return FleetingRaiju;
-
                     if (level >= Levels.Huraijin && gauge.HutonTimer == 0 && !HasEffect(Buffs.Mudra))
                         return Huraijin;
 
@@ -357,6 +328,35 @@ namespace XIVSlothCombo.Combos.PvE
                                 return Jin;
                         }
                     }
+
+                    if (IsEnabled(CustomComboPreset.NIN_TenChiJin))
+                    {
+                        if (HasEffect(Buffs.TenChiJin) && IsEnabled(CustomComboPreset.NIN_TenChiJin))
+                        {
+                            var tcjTimer = FindEffectAny(Buffs.TenChiJin).RemainingTime;
+
+                            if (tcjTimer > 5)
+                                return OriginalHook(Ten);
+
+                            if (tcjTimer > 4)
+                                return OriginalHook(Chi);
+
+                            if (tcjTimer > 3)
+                                return OriginalHook(Jin);
+                        }
+                        if (!GetCooldown(TenChiJin).IsCooldown && gauge.HutonTimer >= 15 && WasLastAction(HyoshoRanryu) && !IsMoving && !HasEffect(Buffs.Mudra))
+                        {
+                            return TenChiJin;
+                        }
+                        if (HasEffect(Buffs.Suiton) && GetCooldownRemainingTime(TrickAttack) >= 20 && gauge.Ninki <= 50)
+                        {
+                            return Meisui;
+                        }
+
+                    }
+
+                    if (HasEffect(Buffs.RaijuReady) && !HasEffect(Buffs.Mudra))
+                        return FleetingRaiju;
 
                     if (!IsEnabled(CustomComboPreset.NIN_NinkiPooling_Bunshin))
                     {

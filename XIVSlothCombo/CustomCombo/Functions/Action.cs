@@ -16,10 +16,15 @@ namespace XIVSlothCombo.CustomComboNS.Functions
         /// <returns> A value indicating whether the action would be modified. </returns>
         public static bool IsOriginal(uint actionID) => Service.IconReplacer.OriginalHook(actionID) == actionID;
 
-        /// <summary> Checks if the player is high enough level to use the passed ID. </summary>
-        /// <param name="id"> ID of the action. </param>
+        /// <summary> Checks if the player is high enough level to use the passed Action ID. </summary>
+        /// <param name="actionid"> ID of the action. </param>
         /// <returns></returns>
-        public static bool LevelChecked(uint id) => LocalPlayer.Level >= GetLevel(id);
+        public static bool LevelChecked(uint actionid) => LocalPlayer.Level >= GetLevel(actionid);
+
+        /// <summary> Checks if the player is high enough level to use the passed Trait ID. </summary>
+        /// <param name="traitid"> ID of the action. </param>
+        /// <returns></returns>
+        public static bool TraitLevelChecked(uint traitid) => LocalPlayer.Level >= GetTraitLevel(traitid);
 
         /// <summary> Returns the name of an action from its ID. </summary>
         /// <param name="id"> ID of the action. </param>
@@ -30,6 +35,11 @@ namespace XIVSlothCombo.CustomComboNS.Functions
         /// <param name="id"> ID of the action. </param>
         /// <returns></returns>
         public static int GetLevel(uint id) => ActionWatching.GetLevel(id);
+
+        /// <summary> Returns the level of a trait. </summary>
+        /// <param name="id"> ID of the action. </param>
+        /// <returns></returns>
+        public static int GetTraitLevel(uint id) => ActionWatching.GetTraitLevel(id);
 
         /// <summary> Checks if the player can use an action based on the level required and off cooldown / has charges.</summary>
         /// <param name="id"> ID of the action. </param>
@@ -159,7 +169,6 @@ namespace XIVSlothCombo.CustomComboNS.Functions
         /// <param name="start"> Time (in seconds) to start to check for the weave window. </param>
         /// <param name="end"> Time (in seconds) to end the check for the weave window. </param>
         /// <returns> True or false. </returns>
-        public static bool CanDelayedWeave(uint actionID, double start = 1.25, double end = 0.6) => GetCooldown(actionID).CooldownRemaining < start && GetCooldown(actionID).CooldownRemaining > end;
-
+        public static bool CanDelayedWeave(uint actionID, double start = 1.25, double end = 0.6) => GetCooldown(actionID).CooldownRemaining <= start && GetCooldown(actionID).CooldownRemaining >= end;
     }
 }
