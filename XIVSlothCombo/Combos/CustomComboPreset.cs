@@ -139,8 +139,8 @@ namespace XIVSlothCombo.Combos
             [ParentCombo(ALL_Melee_Menu)]
             [CustomComboInfo("Melee DPS: True North Protection", "Prevents the use of True North when its buff is already active by replacing it with Fire.", ADV.JobID)]
             ALL_Melee_TrueNorth = 100031,
-        
-            #endregion
+
+        #endregion
 
         #region Global Ranged Physical Features
         [CustomComboInfo("Global Physical Ranged Features", "Features and options involving shared role actions for Physical Ranged DPS.\nCollapsing this category does NOT disable the features inside.", ADV.JobID)]

@@ -355,6 +355,8 @@ namespace XIVSlothCombo.Combos.PvE
                 var STCombo = actionID is Ruin or Ruin2;
                 var AoECombo = actionID is Outburst or Tridisaster;
                 var customID = Services.Service.Configuration.CustomIDuint;
+                
+                // Set custom consumable with the ID value
                 if (lastComboMove is AstralImpulse && UsedDemiAttack && GetCooldownRemainingTime(AstralImpulse) < 1 && GetCooldown(OriginalHook(Aethercharge)).IsCooldown && IsEnabled(CustomComboPreset.SMN_Potion) && HasEffect(SMN.Buffs.SearingLight))
                 {
                     UseItem(customID);

@@ -187,7 +187,7 @@ namespace XIVSlothCombo.Combos.PvE
 
                     if (IsEnabled(CustomComboPreset.RPR_ST_SliceCombo_ComboHeals))
                     {
-                        bool bloodbathReady = LevelChecked(All.Bloodbath) && IsOffCooldown(All.Bloodbath);
+                            bool bloodbathReady = LevelChecked(All.Bloodbath) && IsOffCooldown(All.Bloodbath);
                         bool secondWindReady = LevelChecked(All.SecondWind) && IsOffCooldown(All.SecondWind);
 
                         if (bloodbathReady && playerHP < 65)
