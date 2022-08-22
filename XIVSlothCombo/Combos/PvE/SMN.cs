@@ -306,7 +306,7 @@ namespace XIVSlothCombo.Combos.PvE
                         HasEffect(Buffs.IfritsFavor) && (IsMoving || gauge.Attunement is 0) || lastComboMove == CrimsonCyclone)
                         return OriginalHook(AstralFlow);
 
-                    if (gauge.IsIfritAttuned && IsMoving && HasEffect(Buffs.FurtherRuin))
+                    if (gauge.IsIfritAttuned && IsMoving && HasEffect(Buffs.FurtherRuin) || gauge.IsIfritAttuned && HasEffect(Buffs.IfritsFavor) && IsMoving && HasEffect(Buffs.FurtherRuin))
                         return Ruin4;
 
                     if (gauge.IsGarudaAttuned || gauge.IsTitanAttuned || gauge.IsIfritAttuned)
@@ -616,6 +616,7 @@ namespace XIVSlothCombo.Combos.PvE
                         if (AoECombo && LevelChecked(PreciousBrilliance))
                             return OriginalHook(PreciousBrilliance);
                     }
+
 
                     // Egi Order
                     if (IsEnabled(CustomComboPreset.SMN_DemiEgiMenu_EgiOrder) && gauge.SummonTimerRemaining == 0 && IsOnCooldown(SummonPhoenix) && IsOnCooldown(SummonBahamut))

@@ -1,4 +1,5 @@
 ﻿using FFXIVClientStructs;
+using XIVSlothCombo.Data;
 
 namespace XIVSlothCombo.CustomComboNS.Functions
 {
@@ -9,10 +10,16 @@ namespace XIVSlothCombo.CustomComboNS.Functions
         {
             FFXIVClientStructs.FFXIV.Client.Game.ActionManager.Instance()->UseAction(FFXIVClientStructs.FFXIV.Client.Game.ActionType.Item, itemId, 0xE0000000, 65535, 0, 0, null);
         }
-        public unsafe void UseActionId(uint actionId)
+
+        // Testing auto skills
+        // Current issue that it only executes while a new target is selected.
+        //
+        public unsafe void UseActionId(uint actionID)
         {
-            FFXIVClientStructs.FFXIV.Client.Game.ActionManager.Instance()->UseAction(FFXIVClientStructs.FFXIV.Client.Game.ActionType.Ability, actionId, 0xE0000000, 65535, 0, 0, null);
+            FFXIVClientStructs.FFXIV.Client.Game.ActionManager.Instance()->UseAction(FFXIVClientStructs.FFXIV.Client.Game.ActionType.Spell, actionID, 0xE000_0000, 0, 0, 0, null);
         }
+
+
     }
-    
+
 }
