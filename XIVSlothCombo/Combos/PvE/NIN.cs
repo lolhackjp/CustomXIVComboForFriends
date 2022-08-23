@@ -187,7 +187,7 @@ namespace XIVSlothCombo.Combos.PvE
                     double playerHP = PlayerHealthPercentageHp();
                     var customID = Services.Service.Configuration.CustomIDuint;
 
-                    if (lastComboMove is GustSlash && HasEffect(Buffs.Kassatsu) && !HasEffect(Buffs.Meditated))
+                    if (lastComboMove is SpinningEdge && HasEffect(Buffs.Kassatsu) && !HasEffect(Buffs.Meditated))
                     {
                         UseItem(customID);
                     }

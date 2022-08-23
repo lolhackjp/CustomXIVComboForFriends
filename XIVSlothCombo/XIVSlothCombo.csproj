@@ -4,7 +4,7 @@
 	<PropertyGroup>
 		<Authors>Aki, k-kz, ele-starshade, damolitionn, Taurenkey, Augporto, grimgal</Authors>
 		<Company>-</Company>
-		<Version>5.0.0.3</Version>
+		<Version>6.0.0.1</Version>
 		<!-- This is the version that will be used when pushing to the repo.-->
 		<Description>XIVCombo for lazy players</Description>
 		<Copyright>Copyleft attick 2021 thanks attick UwU</Copyright>
@@ -51,6 +51,7 @@
 	<PropertyGroup Label="Documentation">
 		<DocumentationFile></DocumentationFile>
 		<GenerateDocumentationFile>true</GenerateDocumentationFile>
+		<TargetFramework>net6.0</TargetFramework>
 	</PropertyGroup>
 
 	<ItemGroup>
@@ -66,7 +67,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="DalamudPackager" Version="2.1.6" />
+		<PackageReference Include="DalamudPackager" Version="2.1.8" />
 		<PackageReference Include="ILRepack" Version="2.0.18" />
 	</ItemGroup>
 
