@@ -330,7 +330,7 @@ namespace XIVSlothCombo.Combos.PvE
             internal static bool inOpener = false;
             internal static bool openerFinished = false;
 
-            protected override uint Invoke(uint actionID, uint lastComboMove, float comboTime, byte level)
+            protected unsafe override uint Invoke(uint actionID, uint lastComboMove, float comboTime, byte level)
             {
                 if (actionID == Bootshine)
                 {
@@ -343,9 +343,12 @@ namespace XIVSlothCombo.Combos.PvE
                     var pbStacks = FindEffectAny(Buffs.PerfectBalance);
                     var lunarNadi = gauge.Nadi == Nadi.LUNAR;
                     var solarNadi = gauge.Nadi == Nadi.SOLAR;
+                    var customID = Services.Service.Configuration.CustomIDuint;
+                    var PotionCDGroup = 68;
+                    var canpot = (FFXIVClientStructs.FFXIV.Client.Game.ActionManager.Instance()->GetRecastGroupDetail(PotionCDGroup)->IsActive == 0) ;
 
-                    // Opener for MNK
-                    if (IsEnabled(CustomComboPreset.MNK_ST_Simple_LunarSolarOpener))
+                        // Opener for MNK
+                        if (IsEnabled(CustomComboPreset.MNK_ST_Simple_LunarSolarOpener))
                     {
                         // Re-enter opener when Brotherhood is used
                         if (lastComboMove == Brotherhood)
@@ -373,6 +376,15 @@ namespace XIVSlothCombo.Combos.PvE
 
                         if (inCombat && inOpener && !openerFinished)
                         {
+
+                            if (IsEnabled(CustomComboPreset.MNK_Potion))
+                            {
+                                if (lastComboMove is DragonKick && canpot && canWeave && !HasEffect(Buffs.DisciplinedFist))
+                                {
+                                    UseItem(customID);
+                                }
+                            }
+
                             if (level >= Levels.RiddleOfFire)
                             {
                                 // Early exit out of opener
@@ -494,6 +506,13 @@ namespace XIVSlothCombo.Combos.PvE
                                         (GetRemainingCharges(PerfectBalance) >= 1 && GetCooldownRemainingTime(RiddleOfFire) < 3 && GetCooldownRemainingTime(Brotherhood) < 10)))
                                     {
                                         return PerfectBalance;
+                                    }
+                                }
+                                if (IsEnabled(CustomComboPreset.MNK_Potion))
+                                {
+                                    if (lastComboMove is DragonKick && canpot && HasEffect(Buffs.DisciplinedFist))
+                                    {
+                                        UseItem(customID);
                                     }
                                 }
                             }

@@ -1529,6 +1529,10 @@ namespace XIVSlothCombo.Combos
         [CustomComboInfo("Thunderclap on Main Combo", "Adds Thunderclap when out of combat to the main combo.", MNK.JobID, 0, "", "")]
         MNK_ST_Simple_Thunderclap = 9025,
 
+        [ParentCombo(MNK_ST_SimpleMode)]
+        [CustomComboInfo("Potion", "Potion.", MNK.JobID, 0, "", "")]
+        MNK_Potion = 9026,
+
         #endregion
 
         #region NINJA

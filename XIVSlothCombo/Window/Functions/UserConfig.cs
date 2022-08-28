@@ -1680,7 +1680,6 @@ namespace XIVSlothCombo.Window.Functions
             }
             #endregion
             
-
             #region ItemID
             //Potion feature for each class "Needs updating but works as intented for now"
             if (preset == CustomComboPreset.SMN_Potion)
@@ -1701,6 +1700,23 @@ namespace XIVSlothCombo.Window.Functions
             }
 
             if (preset == CustomComboPreset.NIN_Potion)
+            {
+                var ItemID = (int)Service.Configuration.CustomIDuint;
+                bool inputChanged = false;
+
+                ImGui.PushItemWidth(120);
+                inputChanged |= ImGui.InputInt("Input Custom ID, If you are using HQ Item add 01 to the start of the custom ID. \n Example: 4650 Normal Quality Item \n 014650 High Quality Item  ", ref ItemID);
+
+                if (inputChanged)
+                {
+                    Service.Configuration.CustomIDuint = (uint)ItemID;
+                    Service.Configuration.Save();
+                }
+
+                ImGui.Spacing();
+            }
+
+            if (preset == CustomComboPreset.MNK_Potion)
             {
                 var ItemID = (int)Service.Configuration.CustomIDuint;
                 bool inputChanged = false;

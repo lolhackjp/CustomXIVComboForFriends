@@ -343,7 +343,7 @@ namespace XIVSlothCombo.Combos.PvE
             internal static bool UsedDemiAttack = false;
             protected internal override CustomComboPreset Preset { get; } = CustomComboPreset.SMN_Advanced_Combo;
 
-            protected override uint Invoke(uint actionID, uint lastComboMove, float comboTime, byte level)
+            protected unsafe override uint Invoke(uint actionID, uint lastComboMove, float comboTime, byte level)
             {
                 var gauge = GetJobGauge<SMNGauge>();
                 var summonerPrimalChoice = PluginConfiguration.GetCustomIntValue(Config.SMN_PrimalChoice);
@@ -355,12 +355,15 @@ namespace XIVSlothCombo.Combos.PvE
                 var STCombo = actionID is Ruin or Ruin2;
                 var AoECombo = actionID is Outburst or Tridisaster;
                 var customID = Services.Service.Configuration.CustomIDuint;
-                
+                var PotionCDGroup = 68;
+                var canpot = (FFXIVClientStructs.FFXIV.Client.Game.ActionManager.Instance()->GetRecastGroupDetail(PotionCDGroup)->IsActive == 0);
+
+
                 // Set custom consumable with the ID value
-                if (lastComboMove is AstralImpulse && UsedDemiAttack && GetCooldownRemainingTime(AstralImpulse) < 1 && GetCooldown(OriginalHook(Aethercharge)).IsCooldown && IsEnabled(CustomComboPreset.SMN_Potion) && HasEffect(SMN.Buffs.SearingLight))
+                if (lastComboMove is AstralImpulse && canpot  && GetCooldownRemainingTime(AstralImpulse) < 1 && GetCooldown(OriginalHook(Aethercharge)).IsCooldown && IsEnabled(CustomComboPreset.SMN_Potion) && HasEffect(SMN.Buffs.SearingLight) ||
+                    lastComboMove is FountainOfFire && canpot && GetCooldownRemainingTime(FountainOfFire) < 1 && GetCooldown(OriginalHook(Aethercharge)).IsCooldown && IsEnabled(CustomComboPreset.SMN_Potion) && HasEffect(SMN.Buffs.SearingLight))
                 {
                     UseItem(customID);
-
                 }
 
                 if (WasLastAction(OriginalHook(Aethercharge))) DemiAttackCount = 0;    // Resets counter
